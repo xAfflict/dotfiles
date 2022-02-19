@@ -40,7 +40,9 @@ super + {Left,Down,Up,Right}
 
 # Swap the node in the given direction
 super + shift + {Left,Down,Up,Right}
-	bspc node -s {west,south,north,east}
+        dir={west,south,north,east}; \
+        bspc node -s "$dir.local" --follow \
+            || bspc node -m "$dir" --follow
 
 # Mute and unmute volume
 XF86AudioMute
